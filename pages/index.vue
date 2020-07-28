@@ -12,6 +12,9 @@
             @click="openURL(item)"
           >
         </template>
+        <template v-slot:item.yield="{ item }">
+          {{ (item.monthly * 12) / ( item.price * 0.11) * 100 }}
+        </template>
       </v-data-table>
     </v-row>
     <v-row>
@@ -45,6 +48,10 @@ export default {
         {
           text: 'size',
           value: 'size'
+        },
+        {
+          text: 'yield',
+          value: 'yield'
         }
       ]
     }
